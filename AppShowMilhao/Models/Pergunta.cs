@@ -12,6 +12,6 @@ namespace AppShowMilhao.Models
 
         public string Enunciado { get; set; }
 
-        public List<Alternativa> alternativas { get; set; }
+        public List<Alternativa> Alternativas { get; set; }
     }
 }
