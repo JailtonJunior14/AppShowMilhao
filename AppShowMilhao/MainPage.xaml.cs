@@ -44,6 +44,21 @@
             {
                 DisplayAlert("Errou!", "burro!", "Tentar novamente");
             }
+
+
+        }
+        void avanca_pergunta()
+        {
+            if (pergunta_count <= 5)
+            {
+                premio = premio + 1000;
+                this.BindingContext = App.getRandomPerguntaFacil();
+            }
+            if (pergunta_count > 5 && pergunta_count <= 10)
+            {
+                premio = premio + 10000;
+                this.BindingContext = App.getRandomPerguntaMedia();
+            }
         }
     }
 
