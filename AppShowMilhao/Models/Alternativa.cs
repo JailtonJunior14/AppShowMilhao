@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AppShowMilhao.Models
 {
-    internal class Alternativa
+    public class Alternativa
     {
         public string Descricao { get; set; }
 

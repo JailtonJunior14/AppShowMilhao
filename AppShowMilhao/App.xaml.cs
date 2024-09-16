@@ -5,9 +5,9 @@ namespace AppShowMilhao
 {
     public partial class App : Application
     {
-        List<Pergunta> perguntas_faceis = new()
+        static List<Pergunta> perguntas_faceis = new()
         {
-            
+
             new Pergunta
             {
                 Id = 2,
@@ -238,7 +238,7 @@ namespace AppShowMilhao
             },
         };
 
-        List<Pergunta> Perguntas_medias = new()
+        static List<Pergunta> perguntas_medias = new()
         {
             new Pergunta
             {
@@ -482,7 +482,7 @@ namespace AppShowMilhao
             }
         };
 
-        List<Pergunta> Perguntas_dificeis = new()
+        static List<Pergunta> perguntas_dificeis = new()
         {
             new Pergunta
             {
@@ -726,14 +726,59 @@ namespace AppShowMilhao
             },
 
         };
-    };
 
+        static List<Pergunta> perguntas_sorteadas = new();
         public static Pergunta getRandomPerguntaFacil()
         {
             Random r = new Random();
-            int sorteado = r.Next(1, 20);
 
-            return perguntas_faceis[sorteado];
+            Pergunta perguntas_sorteada;
+            while (true)
+            {
+                int sorteado = r.Next(1, 20);
+                perguntas_sorteada = perguntas_faceis[sorteado];
+                if (!perguntas_sorteadas.Contains(perguntas_sorteada))
+                {
+                    perguntas_sorteadas.Add(perguntas_sorteada);
+                    break;
+                }
+            }return perguntas_sorteada;
+
+        }
+        public static Pergunta getRandomPerguntaMedia()
+        {
+            Random r = new Random();
+
+            Pergunta perguntas_sorteada;
+            while (true)
+            {
+                int sorteado = r.Next(21, 40);
+                perguntas_sorteada = perguntas_medias[sorteado];
+                if (!perguntas_sorteadas.Contains(perguntas_sorteada))
+                {
+                    perguntas_sorteadas.Add(perguntas_sorteada);
+                    break;
+                }
+            }
+            return perguntas_sorteada;
+
+        }
+        public static Pergunta getRandomPerguntaDificil()
+        {
+            Random r = new Random();
+
+            Pergunta perguntas_sorteada;
+            while (true)
+            {
+                int sorteado = r.Next(41, 60);
+                perguntas_sorteada = perguntas_dificeis[sorteado];
+                if (!perguntas_sorteadas.Contains(perguntas_sorteada))
+                {
+                    perguntas_sorteadas.Add(perguntas_sorteada);
+                    break;
+                }
+            }
+            return perguntas_sorteada;
 
         }
         public App()
@@ -742,5 +787,6 @@ namespace AppShowMilhao
 
             MainPage = new AppShell();
         }
-}
+    }
+} 
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AppShowMilhao.Models
 {
-    internal class Pergunta
+    public class Pergunta
     {
         public int Id { get; set; }
 
